@@ -1,0 +1,45 @@
+<header class="header-desktop">
+
+    <div class="section-content section-content-p30">
+
+        <div class="container-fluid">
+            <nav class="navbar navbar-dark bg-primary">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <!-- <div class="header-wrap"> -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a class="btn btn-primary" routerLink="drinks">Home</a>
+                        </div>
+                        <div class="col-md-9" id="adminTag" style="visibility: hidden;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <a class="btn btn-primary" routerLink="refills">Refills</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a class="btn btn-primary" routerLink="reports">Reports</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a class="btn btn-primary" routerLink="containers">Container Status</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-8" style="text-align: right; margin-top: 2%;">
+                            <i id="userInfo">{{userInfo}}</i>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="pull-right"><button id="logBtn" class="btn btn-info"
+                                    (click)="goToSigninPage()">Login</button></span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- <div class="account-wrap"></div> -->
+        </div>
+    </div>
+</header>

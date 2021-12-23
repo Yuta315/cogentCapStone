@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        
+        <br>
+        <form #signinForm="ngForm" (ngSubmit)="doSignin(signinForm)">
+            <div class="imgcontainer">
+                <h2>Login</h2>
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required ngModel/>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required ngModel/>
+
+                <button type="submit">Login</button>
+                <br>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn"><a href="drinks"
+                        style="text-decoration:none;color: white;">Cancel</a></button>
+                <span class="psw">If you don't have one, <a href="signup">Register</a>!</span>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+

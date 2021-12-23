@@ -1,0 +1,85 @@
+<body>
+<br>
+<h1 style="text-align: center;">Refilling Form</h1>
+<br>
+<div class="section-content section-content-p30">
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="col-md-3"></div>
+            <div class="col-md-6" >
+              <form #refillForm="ngForm" (ngSubmit)="addRefill(refillForm)">
+              <table class="table table-sm" id="refillContent">
+                <thead>
+                  <tr class="table-active">
+                    <th scope="col">SR</th>
+                    <th scope="col">Container</th>
+                    <th scope="col">Max Capacity</th>
+                    <th scope="col">Available</th>
+                    <th scope="col">Fill</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Tea</td>
+                    <td>{{maxCtn.teaContainer}} (kg)</td>
+                    <td>{{availableCtn.teaContainer}} (kg)</td>
+                    <td><input name="teaRefill" id="teaRefill" type="number" value=0.000 placeholder="0.000" 
+                      max={{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}} min=0.000 step=0.001 save=0.000
+                      oninput="validity.valid ? this.save = value : value = this.save;" ngModel/> kg</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Coffee</td>
+                    <td>{{maxCtn.coffeeContainer}} (kg)</td>
+                    <td>{{availableCtn.coffeeContainer}} (kg)</td>
+                    <td><input name="coffeeRefill" id="coffeeRefill" type="number" value=0.000 placeholder="0.000" 
+                      max={{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}} min=0.00 step=0.001 save=0.000
+                      oninput="validity.valid ? this.save = value : value = this.save;" ngModel/> kg</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Water</td>
+                    <td>{{maxCtn.waterContainer}} (liters)</td>
+                    <td>{{availableCtn.waterContainer}} (liters)</td>
+                    <td><input name="waterRefill" id="waterRefill"  type="number" value=0.000 placeholder="0.000" 
+                      max="{{(maxCtn.waterContainer-availableCtn.waterContainer).toFixed(3)}}" min=0.000 step=0.001 
+                      save="0.00" oninput="validity.valid ? this.save = value : value = this.save;" ngModel/> liters</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Sugar</td>
+                    <td>{{maxCtn.sugarContainer}} (kg)</td>
+                    <td>{{availableCtn.sugarContainer}} (kg)</td>
+                    <td><input name="sugarRefill" id="sugarRefill" type="number" value=0.000 placeholder="0.000" 
+                      max="{{(maxCtn.sugarContainer-availableCtn.sugarContainer).toFixed(3)}}" min=0.000 step=0.001 
+                      save="0.00" oninput="validity.valid ? this.save = value : value = this.save;"  ngModel/> kg</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Milk</td>
+                    <td>{{maxCtn.milkContainer}} (liters)</td>
+                    <td>{{availableCtn.milkContainer}} (liters)</td>
+                    <td><input name="milkRefill" id="milkRefill" type="number" value=0.000 placeholder="0.000" 
+                      max="{{(maxCtn.milkContainer-availableCtn.milkContainer).toFixed(3)}}" min="0.0" step=0.001 
+                      save="0.00" oninput="validity.valid ? this.save = value : value = this.save;" ngModel/> liters</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td colspan="3"></td>
+                    <td><button type="submit" class="btn btn-primary btn-sm">Fill Containers</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              </form>
+              <div class="alert {{alert_type}} alert-dismissible fade show" role="alert" id="alert_msg" style="visibility: hidden;">
+                <strong>{{msg}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="hideAlert()"></button>
+              </div>
+            </div>
+            <div class="col-md-3"></div>
+
+        </div>
+    </div>
+</div>
+</body>

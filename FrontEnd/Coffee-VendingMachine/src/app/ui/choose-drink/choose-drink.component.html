@@ -1,0 +1,36 @@
+<!-- <p>choose drink works!</p> -->
+
+<body>
+  <br>
+  <h1 style="text-align: center;">Choose Drink</h1>
+  <br>
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <table class="table table-sm">
+            <tbody>
+              <tr *ngFor="let dr of drinkList">
+                  <th scope="row" name="drink" id="drink">
+                    <label #drinkId id="id" name="id">{{dr.id}}</label>
+                  </th>
+                  <td><h6>{{dr.name}}</h6></td>
+                  <td><input name="numberOfCup_{{dr.id}}" id="numberOfCup_{{dr.id}}" type="number" placeholder="0" max="10" min="0" save=0.0
+                    oninput="validity.valid ? this.save = value : value = this.save;"/> Cup
+                  </td>
+                  <td> Rs. {{dr.cost}}/Cup</td>
+                  <td><button (click)="addSaleList(dr)" class="btn btn-primary btn-sm">Get Drink</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="alert {{alert_type}} alert-dismissible fade show" role="alert" id="alert_msg" style="visibility: hidden;">
+            <strong>{{msg}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="hideAlert()"></button>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  </div>
+</body>

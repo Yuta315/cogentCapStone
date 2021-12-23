@@ -1,0 +1,57 @@
+<body>
+  <br>
+  <h1 style="text-align: center;">Sale Details</h1>
+  <br>
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <table class="table table-sm">
+            <thead>
+              <tr class="table-active">
+                <th scope="col">SR</th>
+                <th scope="col">Drink</th>
+                <th scope="col">No. of cups</th>
+                <th scope="col">Cost($)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let s of drinkSaleList">
+                <th scope="row">{{s.id}}</th>
+                <td>{{s.name}}</td>
+                <td>{{s.totalCup}}</td>
+                <td>{{(s.cost*s.totalCup).toFixed(2)}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="align-content: center;">
+              <table class="table table-sm">
+                <thead>
+                  <tr class="table-active">
+                    <th scope="colgroup" rowspan="2" style="text-align: center;">Summary</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Total number of cups</th>
+                    <td style="text-align: center;">{{number_of_cup}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Total cost</th>
+                    <td>${{ total_cost.toFixed(2)}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  </div>
+</body>
