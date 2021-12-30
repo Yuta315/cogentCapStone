@@ -29,4 +29,9 @@ export class DrinkService {
     const uri = this.baseUrl + "/drinks";
     return this.httpc.get<Drink[]>(uri, this.httpOptions);
   }
+
+  addDrink(drink:Drink){
+    const uri = this.baseUrl + "/drinks";
+    return this.httpc.get<Drink>(uri, this.httpOptions);
+  }
 }

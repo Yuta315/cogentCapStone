@@ -36,12 +36,21 @@ export class ChooseDrinkComponent implements OnInit {
       this.msg = `Please enter a number of cups for ${dr.name}.`;
     }
     else{
-      this.cs.getAvailableContainerValue().subscribe(rs => {
+      this.cs.getMaxContainerValue().subscribe(maxcontainer => {
+        this.newCtnValue.teaContainer = maxcontainer.teaContainer - dr.tea;
+        this.newCtnValue.coffeeContainer = maxcontainer.coffeeContainer - dr.coffee;
+        this.newCtnValue.milkContainer = maxcontainer.milkContainer - dr.milk;
+        this.newCtnValue.waterContainer = maxcontainer.waterContainer - dr.water;
+        this.newCtnValue.sugarContainer = maxcontainer.sugarContainer - dr.sugar;
+        console.log(this.newCtnValue); 
+      
+      //})
+      /*this.cs.getAvailableContainerValue().subscribe(rs => {
         this.newCtnValue.teaContainer = rs.teaContainer - dr.tea*noc/1000;
         this.newCtnValue.coffeeContainer = rs.coffeeContainer - dr.coffee*noc/1000;
         this.newCtnValue.milkContainer = rs.milkContainer - dr.milk*noc/1000;
         this.newCtnValue.sugarContainer = rs.sugarContainer - dr.sugar*noc/1000;
-        this.newCtnValue.waterContainer = rs.waterContainer - dr.water*noc/1000;
+        this.newCtnValue.waterContainer = rs.waterContainer - dr.water*noc/1000;*/
         //check if containers are enough for making drinks
         if (this.newCtnValue.teaContainer<=0 || this.newCtnValue.coffeeContainer<=0 ||
           this.newCtnValue.milkContainer<=0 || this.newCtnValue.sugarContainer<=0 ||
@@ -50,8 +59,10 @@ export class ChooseDrinkComponent implements OnInit {
           this.msg = "Containers are not enough. Please contact to ADMIN for refilling!";
         }
         else{
+          if(localStorage.getItem('currentUser')!==null)
+          {
           // update containers with new avalue
-          //this.cs.updateCurrentContainer(this.newCtnValue).subscribe(rs => {});
+          this.cs.updateCurrentContainer(this.newCtnValue);
           // add sales into salelist
           this.sls.addSaleList(this.setSaleListValue(dr,noc)).subscribe(rs =>{ 
             if (rs.saleListId!=0){
@@ -60,6 +71,10 @@ export class ChooseDrinkComponent implements OnInit {
           this.alert_type = "alert-success";
           this.msg = "Preparing for making "+dr.name;
         }
+        else{
+          this.msg = "Please login first";
+        }
+      }
       });
     }
     document.getElementById("alert_msg").style.visibility = "visible";

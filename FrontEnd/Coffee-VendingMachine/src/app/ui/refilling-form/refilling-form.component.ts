@@ -37,6 +37,7 @@ export class RefillingFormComponent implements OnInit {
   addRefill(refillForm){
     this.dates = (new Date).toISOString();
     refillForm.value.teaRefill = refillForm.value.teaRefill*1000;
+    console.log(refillForm.value.teaRefill);
     refillForm.value.coffeeRefill = refillForm.value.coffeeRefill*1000;
     refillForm.value.waterRefill = refillForm.value.waterRefill*1000;
     refillForm.value.sugarRefill = refillForm.value.sugarRefill*1000;

@@ -24,8 +24,10 @@
                     <td>Tea</td>
                     <td>{{maxCtn.teaContainer}} (kg)</td>
                     <td>{{availableCtn.teaContainer}} (kg)</td>
-                    <td><input name="teaRefill" id="teaRefill" type="number" value=0.000 placeholder="0.000" 
-                      max={{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}} min=0.000 step=0.001 save=0.000
+                    <td><input name="teaRefill" id="teaRefill" 
+                      type="number" value=0.000 placeholder="0.000" 
+                      max={{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}} 
+                      min=0.000 step=0.001 save=0.000
                       oninput="validity.valid ? this.save = value : value = this.save;" ngModel/> kg</td>
                   </tr>
                   <tr>

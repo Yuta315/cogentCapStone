@@ -11,7 +11,7 @@
                         <div class="col-md-3">
                             <a class="btn btn-primary" routerLink="drinks">Home</a>
                         </div>
-                        <div class="col-md-9" id="adminTag" style="visibility: hidden;">
+                        <div class="col-md-9" id="adminTag" >
                             <div class="row">
                                 <div class="col-md-3">
                                     <a class="btn btn-primary" routerLink="refills">Refills</a>
@@ -33,8 +33,13 @@
                             <i id="userInfo">{{userInfo}}</i>
                         </div>
                         <div class="col-md-4">
-                            <span class="pull-right"><button id="logBtn" class="btn btn-info"
-                                    (click)="goToSigninPage()">Login</button></span>
+                            <!--<span class="pull-right"><button id="logBtn" class="btn btn-info"
+                                    (click)="goToSigninPage()">Login</button></span> -->
+                                    <span class="pull-right">
+                                        <button id="logBtn" class="btn btn-info" (click)="goToSigninPage()" *ngIf="!isLogin">
+                                        Login </button>
+                                        <button id="logBtn" class="btn btn-info" (click)="logout()" *ngIf="isLogin">
+                                        Logout</button> </span>
                         </div>
                     </div>
                 </div>
